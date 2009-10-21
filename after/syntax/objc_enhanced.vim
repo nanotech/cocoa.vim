@@ -9,6 +9,18 @@
 "          for you, just comment out the next line.
 ru after/syntax/cocoa_keywords.vim
 
+" This can be inaccurate, but it's nice when it works.
+" You could be a bit more strict and require a two-letter
+" prefix, but not all classes have prefixes.
+"
+" syn match objcCustomClass /\<[A-Z][A-Z][A-Za-z0-9]\+\>/ display
+
+syn match objcCustomClass /\<[A-Z][A-Za-z0-9]\+\>/ display
+hi link objcCustomClass objcClass
+
+syn match cCustomConstant /\<[A-Z_][A-Z0-9_]\+\>/ display
+hi link cCustomConstant Constant
+
 syn match objcDirective '@synthesize\|@property' display
 syn keyword objcType IBOutlet IBAction Method
 syn keyword objcConstant YES NO TRUE FALSE
